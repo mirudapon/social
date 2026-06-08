@@ -1,6 +1,7 @@
 ---
 import { IconHome, IconCoffee } from '@tabler/icons-react'
 import Navbar from '../components/Navbar.tsx'
+import Sidebar from '../components/Sidebar.astro'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 const navItem = [
@@ -20,11 +21,25 @@ const navItem = [
     <link rel="icon" href="/favicon.ico" />
   </Fragment>
 
-  <div class="flex justify-center w-[var(--max-width,1190px)] mx-auto">
+  <div class="flex justify-center w-[var(--max-width,1190px)] mx-auto h-screen">
     <Navbar items={navItem} />
 
     <main class="flex-1">
-      <slot />
+      <div class="p-4 border-b border-gray-200">
+        <slot name="title" />
+      </div>
+
+      <div class="p-4 border-b border-gray-200">
+        <slot name="controller" />
+      </div>
+
+      <div class="p-4 border-b border-gray-200">
+        <slot />
+      </div>
+
+      <slot name="footer" />
     </main>
+
+    <Sidebar />
   </div>
 </BaseLayout>
