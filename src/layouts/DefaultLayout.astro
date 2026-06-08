@@ -1,10 +1,11 @@
 ---
-import { IconHome } from '@tabler/icons-react'
+import { IconHome, IconCoffee } from '@tabler/icons-react'
 import Navbar from '../components/Navbar.tsx'
 import BaseLayout from '../layouts/BaseLayout.astro'
 
 const navItem = [
-  { label: 'Home', to: '/', icon: IconHome },
+  { label: '首頁', to: '/', icon: IconHome },
+  { label: 'Buy Me A Coffee', to: '/', icon: IconCoffee },
 ]
 
 ---
@@ -19,9 +20,11 @@ const navItem = [
     <link rel="icon" href="/favicon.ico" />
   </Fragment>
 
-  <div id="app">
+  <div class="flex justify-center w-[var(--max-width,1190px)] mx-auto">
     <Navbar items={navItem} />
 
-    <slot />
+    <main class="flex-1">
+      <slot />
+    </main>
   </div>
 </BaseLayout>
