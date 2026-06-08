@@ -1,4 +1,5 @@
 import antfu, { react } from '@antfu/eslint-config'
+import eslintPluginAstro from 'eslint-plugin-astro'
 
 export default antfu({
   stylistic: {
@@ -26,13 +27,13 @@ export default antfu({
     'ts/consistent-type-imports': ['off'],
   },
 }, react({
-  files: ['apps/frontend/**/*.?([cm])[jt]s?(x)'],
+  files: ['**/*.?([cm])[jt]s?(x)'],
   rules: {
     'react-refresh/only-export-components': ['off'],
   },
 }), {
-  files: ['apps/frontend/**/*.?([cm])[jt]s?(x)'],
+  files: ['**/*.?([cm])[jt]s?(x)'],
   rules: {
     'react-hooks-extra/no-direct-set-state-in-use-effect': 'off',
   },
-})
+}, ...eslintPluginAstro.configs.recommended)
