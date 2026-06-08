@@ -1,0 +1,31 @@
+---
+import type { Icon } from '@tabler/icons-react'
+
+interface NavItem {
+  label: string
+  icon: Icon
+  to: string
+}
+
+interface Props {
+  items: NavItem[]
+}
+
+const { items } = Astro.props as Props
+---
+
+<nav class="pt-[32px] w-[250px] border-r border-gray-200">
+  <ul class="flex flex-col text-xl">
+    {items.map(item => (
+      <li>
+        <a
+          class="flex items-center gap-8 p-[16px] hover:bg-gray-100 rounded-[9999px]"
+          href={item.to}
+        >
+          <item.icon size={24} />
+          {item.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+</nav>
