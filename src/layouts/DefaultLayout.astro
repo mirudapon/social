@@ -8,10 +8,9 @@ const navItem = [
   { label: '首頁', to: '/', icon: IconHome },
   { label: 'Buy Me A Coffee', to: '/', icon: IconCoffee },
 ]
-
 ---
 
-<BaseLayout title="咪路的不互動社群媒體">
+<BaseLayout title={import.meta.env.SITE_TITLE}>
   <Fragment slot="meta">
     <meta name="generator" content={Astro.generator} />
   </Fragment>
